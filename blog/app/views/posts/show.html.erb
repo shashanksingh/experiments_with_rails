@@ -15,6 +15,35 @@
   <%= @post.content %>
 </p>
 
+	<p>
+	
+	<b> Comments </b>
+	<ul>
+	<% @post.comments.each do |comments| %>
+		<li>
+			<%= comments.body %> by <%= comments.commenter %>
+		</li>
+		
+		<% end %>
+	</ul>
+	</p>
+
+<p>
+	<%= form_for([@post, @post.comments.build]) do |f| %>
+		<div class="field">
+			<%= f.label :commenter %><br />
+			<%= f.text_field :commenter %>
+		</div>
+		<div class="field">
+			<%= f.label :body %><br />
+			<%= f.text_area :body %>
+		</div>
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+	<% end %>
+
+</p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
