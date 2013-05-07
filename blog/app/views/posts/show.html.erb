@@ -21,7 +21,8 @@
 	<ul>
 	<% @post.comments.each do |comments| %>
 		<li>
-			<%= comments.body %> by <%= comments.commenter %>
+			<%= comments.body %> by <%= comments.commenter %> 
+			<%= link_to "Destroy Comment", [commment.post,comment],:comment =>'Are you sure',:method=>:delete %>
 		</li>
 		
 		<% end %>
