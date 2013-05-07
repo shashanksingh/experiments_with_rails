@@ -1,5 +1,6 @@
 Blog::Application.routes.draw do
   get "home/index"
+  root :to => "home#index" #INFO: app#controller
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
